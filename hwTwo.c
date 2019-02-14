@@ -31,7 +31,7 @@ int main(){
 
 	return 0;
 }
-
+------------------------------------------------------------------------------------------------------
 2)
 #include <stdio.h>
 
@@ -47,5 +47,49 @@ int main(){
 	return 0;
 
 }
+------------------------------------------------------------------------------------------------------
+3)
+#include <stdio.h>
+
+double sharesPurchased;
+double pricePerShare;
+double commissionPercentage;
+double priceSold;
+
+double pricePaid(){
+	return sharesPurchased * pricePerShare;
+}
+
+double commission(){
+	return pricePaid() * commissionPercentage;
+}
+double soldStock(){
+	return sharesPurchased * priceSold;
+}
+double commission2(){
+	return soldStock() * commissionPercentage;
+}
+double profit(){
+	return soldStock() - (pricePaid() + commission() + commission2());
+}
+
+int main(){
+
+	sharesPurchased = 1000;
+	pricePerShare = 45.50;
+	commissionPercentage = .02;
+	priceSold = 56.90;
+
+	printf("Amount Paid: $%.2f\n", pricePaid());
+	printf("Commission after purchase: $%.2f\n", commission());
+	printf("Amount Sold: $%.2f\n", soldStock());
+	printf("Commission after selling: $%.2f\n", commission2());
+	printf("Profit: $%.2f\n", profit());
+
+	return 0;
+}
+------------------------------------------------------------------------------------------------------
+4)
+
 	
 
