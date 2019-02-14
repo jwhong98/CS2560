@@ -90,6 +90,30 @@ int main(){
 }
 ------------------------------------------------------------------------------------------------------
 4)
+#include <stdio.h>
 
+int main(){
+
+	printf("Pattern A\n");
+	int rows = 10;
+
+	for(int row = 0; row < rows; row++){
+		for(int column = 0; column <= row; column++){
+			printf("+");
+		}
+		printf("\n");
+	}
+
+	printf("\n");
+
+	printf("Pattern B\n");
+
+	for(int i = rows; i >= 0; i--){
+		for(int j = 1; j<=i; j++){
+			printf("+");
+		}
+		printf("\n");
+	}
+}
 	
 
