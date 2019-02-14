@@ -32,3 +32,20 @@ int main(){
 	return 0;
 }
 
+2)
+#include <stdio.h>
+
+int main(){
+
+	double risingRate = 1.5;
+
+	printf("Displaying rise of ocean levels from current levels in millimeters: \n");
+	printf("In 5 years: %.2f\n", risingRate * 5);
+	printf("In 7 years: %.2f\n", risingRate * 7);
+	printf("In 10 years: %.2f\n", risingRate * 10);
+	
+	return 0;
+
+}
+	
+
