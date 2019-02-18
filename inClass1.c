@@ -564,19 +564,9 @@ void printBook( struct Books book ) {
 
 //10)
 
-//UNION 
-
-//only one data type can exist at any given time in a union 
-
-//The size allocated for a union will be the largest type. 
-
-  
-
 #include <stdio.h> 
 
 #include <string.h> 
-
-  
 
 //size allocated is 20 bytes. Regardless of which data you use. This way computer can change it at runtime 
 
@@ -590,25 +580,16 @@ union Data {
 
 }; 
 
-  
-
 int main( ) { 
 
-  
-
-   union Data data;         
-
-  
-
+   union Data data;   
+	
    printf( "Memory size occupied by data : %d\n", sizeof(data)); 
-
-  
-
+	
    return 0; 
 
 } 
 
-  
 /**********************************************/ 
 
 //11)
@@ -616,8 +597,6 @@ int main( ) {
 #include <stdio.h> 
 
 #include <string.h> 
-
-  
 
 union Data { 
 
@@ -627,17 +606,11 @@ union Data {
 
    char str[20]; 
 
-}; 
-
-  
+};   
 
 int main( ) { 
 
-  
-
    union Data data;         
-
-  
 
    data.i = 10; 
 
@@ -645,15 +618,12 @@ int main( ) {
 
    strcpy( data.str, "C Programming");  //writes over f 
 
-  
 
    printf( "data.i : %d\n", data.i);    //print out garbage will read 4 bytes interpret as whole number 
 
    printf( "data.f : %f\n", data.f);    //print out garbage will read 4 bytes intrepret as  
 
    printf( "data.str : %s\n", data.str); //print out "C Programming" 
-
-  
 
    return 0; 
 
@@ -669,8 +639,6 @@ int main( ) {
 
 #include <string.h> 
 
-  
-
 union Data { 
 
    int i; 
@@ -681,27 +649,17 @@ union Data {
 
 }; 
 
-  
-
 int main( ) { 
 
-  
-
    union Data data;         
-
-  
 
    data.i = 10; 
 
    printf( "data.i : %d\n", data.i); 
 
-    
-
    data.f = 220.5; 
 
    printf( "data.f : %f\n", data.f); 
-
-    
 
    strcpy( data.str, "C Programming"); 
 
@@ -713,3 +671,166 @@ int main( ) {
 
 } 
 
+/**********************************************/
+
+//13
+
+#include <stdio.h> 
+
+void swap(int *x, int *y)  //defining function called swap 
+
+{ 
+
+    int z = *x; 
+
+    *x = *y; 
+
+    *y = z; 
+
+} 
+
+int main() 
+
+{ 
+
+    int a = 45, b = 35; 
+
+    printf("Before Swap\n"); 
+
+    printf("a = %d b = %d\n",a,b); 
+	
+    swap(&a, &b); 
+
+    printf("After Swap with pass by reference\n"); 
+
+    printf("a = %d b = %d\n",a,b); 
+
+    return 0; 
+
+} 
+
+/**********************************************/
+
+//14
+
+#include <stdio.h>  //standard input output built into c library 
+
+typedef int number; 
+
+ int main() { 
+
+   number c; 
+
+   printf( "Enter a value :"); 
+
+   fflush(stdout);  //ECLIPSE BUG 
+
+   c = getchar( ); 
+
+   printf( "\nYou entered: "); 
+
+   putchar( c ); 
+
+   return 0; 
+
+} 
+
+/**********************************************/
+
+ //15
+
+#include <stdio.h> 
+
+int main( ) { 
+
+   char str[100];       //char array STRING used as buffer 
+
+   printf( "Enter a value :"); 
+
+   fflush(stdout);  //ECLIPSE BUG 
+
+   gets( str ); 
+
+   printf( "\nYou entered: "); 
+
+   puts( str ); 
+
+   return 0; 
+
+} 
+
+/**********************************************/ 
+
+//16 
+
+#include <stdio.h> 
+
+int main( ) { 
+
+   char str[100]; 
+
+   int i; 
+
+   printf( "Enter a value :"); 
+
+   fflush(stdout);  //ECLIPSE BUG 
+
+   scanf("%s %d", str, &i); 
+
+   printf( "\nYou entered: %s %d ", str, i); 
+
+   return 0; 
+
+} 
+
+/**********************************************/ 
+
+//17
+
+#include <stdio.h> 
+
+int main() { 
+
+   FILE *fp;        //pointer to a file type 
+
+   fp = fopen("textFile.txt", "w+"); 
+
+   fprintf(fp, "This is testing for fprintf...\n"); 
+
+   fputs("This is testing for fputs...\n", fp); 
+
+   fclose(fp); 
+
+   return 0; 
+
+} 
+
+/**********************************************/ 
+
+//18
+
+#include <stdio.h> 
+
+void main() { 
+
+   FILE *fp; 
+
+   char buff[255]; 
+
+   fp = fopen("textFile.txt", "r"); 
+
+   fscanf(fp, "%s", buff); 
+
+   printf("1 : %s\n", buff ); 
+
+   fgets(buff, 255, (FILE*)fp); 
+
+   printf("2: %s\n", buff ); 
+
+   fgets(buff, 255, (FILE*)fp); 
+
+   printf("3: %s\n", buff ); 
+
+   fclose(fp); 
+
+} 
