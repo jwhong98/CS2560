@@ -82,3 +82,67 @@ int main(){
 	}
 }
 
+------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+float startingPopulation;
+float birthRate;
+float deathRate;
+float years;
+
+float populationSize(){
+	birthRate = birthRate / 100;
+	deathRate = deathRate / 100;
+	float population = (startingPopulation + (birthRate * startingPopulation) - (deathRate * startingPopulation)) * years;
+	return population;
+
+}
+
+int main(){
+
+	printf("Enter starting population size: ");
+	fflush(stdout);
+	scanf("%f", &startingPopulation);
+
+	if(startingPopulation < 2){
+		printf("Population size can't be less than 2. Please enter another size: ");
+		fflush(stdout);
+		scanf("%f", &startingPopulation);
+	}
+
+	printf("Enter birth rate: ");
+	fflush(stdout);
+	scanf("%f", &birthRate);
+
+	if(birthRate < 0){
+			printf("Birth rate can't be negative. Please enter a positive birth rate: ");
+			fflush(stdout);
+			scanf("%f", &birthRate);
+		}
+
+	printf("Enter death rate: ");
+	fflush(stdout);
+	scanf("%f", &deathRate);
+
+	if(deathRate < 0){
+				printf("Death rate can't be negative. Please enter a positive death rate: ");
+				fflush(stdout);
+				scanf("%f", &deathRate);
+			}
+
+	printf("Number of years to display: ");
+	fflush(stdout);
+	scanf("%f", &years);
+
+	if(years < 1){
+			printf("Number of years must be greater than 1. Please enter another size: ");
+			fflush(stdout);
+			scanf("%f", &years);
+		}
+
+	printf("Population after %g year(s) is %g", years, populationSize());
+
+}
+
+------------------------------------------------------------------------------------------------------
