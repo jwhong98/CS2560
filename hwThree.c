@@ -1,9 +1,4 @@
-/*
- * hwk3.c
- *
- *  Created on: Feb 19, 2019
- *      Author: jwhong
- */
+1)
 
 #include <stdio.h>
 
@@ -84,6 +79,8 @@ int main(){
 
 ------------------------------------------------------------------------------------------------------
 
+2)
+	
 #include <stdio.h>
 
 float startingPopulation;
@@ -146,3 +143,44 @@ int main(){
 }
 
 ------------------------------------------------------------------------------------------------------
+	
+3)
+	
+
+	
+------------------------------------------------------------------------------------------------------
+
+4)
+	
+#include <stdio.h>
+
+int array[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+int copy[8];
+
+void reverseArray(){
+
+	int count = 7;
+	for(int i = 0; i < 8; i++){
+		copy[count] = array[i];
+		count--;
+	}
+}
+
+ int main() {
+
+	 printf("Original array: ");
+
+	 for(int i = 0; i < 8; i++){
+		 printf("%d ", array[i]);
+	 }
+	 printf("\n");
+
+	 reverseArray();
+
+	 printf("Reversed array: ");
+
+	 for(int j = 0; j < 8; j++){
+		 printf("%d ", copy[j]);
+	 }
+
+ }
