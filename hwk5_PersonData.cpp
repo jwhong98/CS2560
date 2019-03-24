@@ -70,9 +70,6 @@ public:
 	double purchases(){
 		return purchasesAmount;
 	}
-	/*double getPurchasesAmount(){
-		return purchasesAmount;
-	}*/
 	double discount(){
 		double discount;
 		if(500 <= purchasesAmount && purchasesAmount < 1000 ){
