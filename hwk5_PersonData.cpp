@@ -42,7 +42,7 @@ class CustomerData : public PersonData {
 	bool mailingList;
 
 public:
-	CustomerData(std::string l, std::string f) : PersonData(l, f, "3801 W Temple Ave", "Pomona", "CA", 91768, "909-869-7659"),  customerNumber(0), mailingList(true) {
+	CustomerData(std::string l, std::string f) : PersonData(l, f, "3801 W Temple Ave", "Pomona", "CA", 91768, "909-869-7659"),  customerNumber(0), mailingList(false) {
 
 	};
 	int number(){
@@ -50,7 +50,7 @@ public:
 	}
 	std::string mail(){
 		std::string list;
-		if((mailingList = false)){
+		if((mailingList == false)){
 			list = "No";
 		}else{
 			list = "Yes";
@@ -59,11 +59,45 @@ public:
 	}
 };
 
+class PreferredCustomer : public CustomerData {
+	double purchasesAmount;
+	double discountLevel;
+
+public:
+	PreferredCustomer(double purchase) : CustomerData("Hong", "Jaewon"), purchasesAmount(1250), discountLevel(){
+
+	}
+	double purchases(){
+		return purchasesAmount;
+	}
+	/*double getPurchasesAmount(){
+		return purchasesAmount;
+	}*/
+	double discount(){
+		double discount;
+		if(500 <= purchasesAmount && purchasesAmount < 1000 ){
+			discount = 5;
+		}else if(1000 <= purchasesAmount && purchasesAmount < 1500){
+			discount = 6;
+		}else if(1500 <= purchasesAmount && purchasesAmount < 2000){
+			discount = 7;
+		}else if(2000 <= purchasesAmount ){
+			discount = 10;
+		}else{
+			discount = 0;
+			printf("Invalid purchase amount.");
+		}
+		return discount;
+	}
+};
+
 int main(){
 	CustomerData c("Hong", "Jaewon");
 	c.display();
-
 	printf("Customer number is: %d\n", c.number());
-	printf("Mailing List: %s", c.mail().c_str());
-
+	printf("Mailing List: %s\n", c.mail().c_str());
+	
+	PreferredCustomer pc(1250);
+	printf("Total purchase amount: $%.2f\n", pc.purchases());
+	printf("Total discount: %.2f%%", pc.discount());
 }
