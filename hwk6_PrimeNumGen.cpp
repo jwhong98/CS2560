@@ -15,7 +15,7 @@ void printv(std::vector<T> & v){
 }
 
 
-void primeNum(std::vector <int> v, int size){
+void primeNum(std::vector <int> & v, int size){
 
 	//bool prime = true;
 
@@ -25,6 +25,7 @@ void primeNum(std::vector <int> v, int size){
 			if(num%j == 0){
 				//prime = false;
 				v.erase(v.begin() + i);
+				break;
 			}
 		}
 	}
@@ -48,9 +49,9 @@ int main(){
 
 	std::cout << "Prime numbers:" << std::endl;
 
-	//primeNum(v1, v1.size());
+	primeNum(v1, v1.size());
 
-	std::for_each(v1.begin(), v1.end(), primeNum(v1, v1.size()));
+	//std::for_each(v1.begin(), v1.end(), primeNum(v1, v1.size()));
 
 	printv(v1);
 
